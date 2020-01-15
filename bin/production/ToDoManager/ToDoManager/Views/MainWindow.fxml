@@ -1,0 +1,164 @@
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import java.lang.String?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ListView?>
+<GridPane fx:controller="ToDoManager.Controllers.MainWindowController"
+          xmlns:fx="http://javafx.com/fxml" alignment="center"
+          maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
+    <columnConstraints>
+        <ColumnConstraints hgrow="NEVER" prefWidth="300" />
+        <ColumnConstraints hgrow="ALWAYS"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints vgrow="ALWAYS" />
+    </rowConstraints>
+    <GridPane GridPane.columnIndex="0" GridPane.rowIndex="0" prefWidth="300" alignment="CENTER_LEFT"
+              styleClass="leftPanel">
+        <rowConstraints>
+            <RowConstraints vgrow="NEVER" />
+            <RowConstraints vgrow="NEVER" />
+            <RowConstraints vgrow="ALWAYS" />
+            <RowConstraints vgrow="NEVER" prefHeight="5" />
+            <RowConstraints vgrow="NEVER" />
+        </rowConstraints>
+        <columnConstraints>
+            <ColumnConstraints hgrow="ALWAYS"/>
+        </columnConstraints>
+        <ListView fx:id="_OverviewTaskListView" GridPane.rowIndex="0" GridPane.columnIndex="0"
+                  styleClass="leftPanelCustomTasksListView" prefHeight="158"
+                  onMouseClicked="#_OverviewTaskListView_Clicked"/>
+        <GridPane GridPane.rowIndex="1" GridPane.columnIndex="0" styleClass="leftPanelSeparator">
+            <GridPane.margin>
+                <Insets right="15" left="15" top="5" bottom="5"/>
+            </GridPane.margin>
+        </GridPane>
+        <ListView fx:id="_CustomTaskListView" GridPane.rowIndex="2" GridPane.columnIndex="0"
+                  styleClass="leftPanelCustomTasksListView"
+                  onMouseClicked="#_CustomTaskListView_Clicked"/>
+        <GridPane GridPane.rowIndex="4" GridPane.columnIndex="0">
+            <padding><Insets left="10"/></padding>
+            <columnConstraints>
+                <ColumnConstraints hgrow="ALWAYS"/>
+                <ColumnConstraints hgrow="NEVER" prefWidth="20"/>
+                <ColumnConstraints hgrow="NEVER"/>
+            </columnConstraints>
+            <TextField fx:id="_ListNameInput" GridPane.columnIndex="0" styleClass="leftPanelInput" promptText="Nowa lista..."
+                       onKeyPressed="#_ListNameInput_KeyPressed"/>
+            <GridPane GridPane.columnIndex="2" styleClass="leftPanelButton" onMouseClicked="#_AddNewListButton_Clicked">
+                <ImageView>
+                    <image>
+                        <Image url="@../Images/add_32.png"/>
+                    </image>
+                </ImageView>
+            </GridPane>
+        </GridPane>
+    </GridPane>
+    <GridPane GridPane.columnIndex="1" GridPane.rowIndex="0"
+              styleClass="rightPanel">
+        <columnConstraints>
+            <ColumnConstraints hgrow="ALWAYS"/>
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints vgrow="NEVER" />
+            <RowConstraints vgrow="SOMETIMES" />
+            <RowConstraints vgrow="ALWAYS" />
+        </rowConstraints>
+        <GridPane GridPane.rowIndex="0" GridPane.columnIndex="0"
+                  styleClass="rightPanelTitleBorder">
+            <rowConstraints>
+                <RowConstraints vgrow="ALWAYS" />
+            </rowConstraints>
+            <columnConstraints>
+                <ColumnConstraints hgrow="NEVER"/>
+                <ColumnConstraints hgrow="NEVER" prefWidth="10"/>
+                <ColumnConstraints hgrow="ALWAYS"/>
+                <ColumnConstraints hgrow="NEVER" prefWidth="10"/>
+                <ColumnConstraints hgrow="NEVER"/>
+            </columnConstraints>
+            <ImageView fx:id="_CurrentListIcon" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <Text fx:id="_CurrentListName" GridPane.rowIndex="0" GridPane.columnIndex="2"
+                  styleClass="rightPanelTitleText"/>
+            <GridPane fx:id="_CurrentListDeleteButton" GridPane.rowIndex="0" GridPane.columnIndex="4" alignment="CENTER"
+                      styleClass="rightPanelHeaderIconButton"
+                      onMouseClicked="#_CurrentListDeleteButton_Clicked">
+                <padding><Insets left="7" right="7" bottom="7" top="7"/></padding>
+                <ImageView fitWidth="50" fitHeight="50"/>
+            </GridPane>
+        </GridPane>
+        <GridPane fx:id="_TaskPane" GridPane.rowIndex="1" GridPane.columnIndex="0"
+                  styleClass="rightPanelTaskBorder">
+            <columnConstraints>
+                <ColumnConstraints hgrow="NEVER"/>
+                <ColumnConstraints hgrow="NEVER" prefWidth="10"/>
+                <ColumnConstraints hgrow="ALWAYS"/>
+                <ColumnConstraints hgrow="NEVER" prefWidth="10"/>
+                <ColumnConstraints hgrow="NEVER"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints vgrow="NEVER" />
+                <RowConstraints vgrow="NEVER" />
+            </rowConstraints>
+            <GridPane GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.rowSpan="2"
+                      alignment="CENTER" prefWidth="42" prefHeight="42"
+                      styleClass="rightPanelIconButton"
+                      onMouseClicked="#_AddTaskButton_Clicked">
+                <ImageView>
+                    <image>
+                        <Image url="@../Images/add_32.png"/>
+                    </image>
+                </ImageView>
+            </GridPane>
+            <TextField fx:id="_TaskNameInput" GridPane.columnIndex="2" GridPane.rowIndex="0"
+                       styleClass="rightPanelTaskInput" promptText="Tytuł..."
+                       onKeyPressed="#_TaskNameInput_KeyPressed"/>
+            <GridPane fx:id="_AddTaskIsImportantButton" GridPane.columnIndex="4" GridPane.rowIndex="0" GridPane.rowSpan="2"
+                      alignment="CENTER" prefWidth="42" prefHeight="42"
+                      styleClass="rightPanelIconButton"
+                      onMouseClicked="#_AddTaskIsImportantButton_Clicked">
+                <ImageView>
+                    <image>
+                        <Image url="@../Images/important_32_disabled.png"/>
+                    </image>
+                </ImageView>
+            </GridPane>
+            <GridPane GridPane.columnIndex="2" GridPane.rowIndex="1">
+                <padding><Insets top="10"/></padding>
+                <columnConstraints>
+                    <ColumnConstraints hgrow="NEVER"/>
+                    <ColumnConstraints hgrow="NEVER" prefWidth="5"/>
+                    <ColumnConstraints hgrow="ALWAYS"/>
+                    <ColumnConstraints hgrow="NEVER" prefWidth="15"/>
+                    <ColumnConstraints hgrow="NEVER"/>
+                    <ColumnConstraints hgrow="NEVER" prefWidth="5"/>
+                    <ColumnConstraints hgrow="ALWAYS"/>
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints vgrow="ALWAYS" />
+                </rowConstraints>
+                <Text GridPane.columnIndex="0" GridPane.rowIndex="0"
+                      text="Planowana data rozpoczęcia:"
+                      styleClass="rightPanelTaskLabel"/>
+                <TextField fx:id="_TaskDateFromInput" GridPane.columnIndex="2" GridPane.rowIndex="0"
+                           promptText="dd.mm.rrrr gg:mm:ss"
+                           styleClass="rightPanelTaskDateInput"/>
+                <Text GridPane.columnIndex="4" GridPane.rowIndex="0"
+                      text="Planowana data zakończenia:"
+                      styleClass="rightPanelTaskLabel"/>
+                <TextField fx:id="_TaskDateToInput" GridPane.columnIndex="6" GridPane.rowIndex="0"
+                           promptText="dd.mm.rrrr gg:mm:ss"
+                           styleClass="rightPanelTaskDateInput"/>
+            </GridPane>
+        </GridPane>
+        <ListView fx:id="_TasksListView" GridPane.rowIndex="2" GridPane.columnIndex="0"
+                  styleClass="leftPanelCustomTasksListView"/>
+    </GridPane>
+</GridPane>

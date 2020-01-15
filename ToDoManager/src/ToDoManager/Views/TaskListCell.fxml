@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
+
+<GridPane xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:id="_Root"
+          styleClass="leftPanelButton">
+    <columnConstraints>
+        <ColumnConstraints hgrow="NEVER"/>
+        <ColumnConstraints hgrow="NEVER" prefWidth="5"/>
+        <ColumnConstraints hgrow="NEVER" prefWidth="250"/>
+    </columnConstraints>
+    <ImageView fx:id="_Icon" GridPane.columnIndex="0" styleClass="leftPanelButtonImage"/>
+    <Label fx:id="_Name" GridPane.columnIndex="2" styleClass="leftPanelButtonText"/>
+</GridPane>

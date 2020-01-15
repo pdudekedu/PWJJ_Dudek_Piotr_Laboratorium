@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
+
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.image.Image?>
+<GridPane xmlns="http://javafx.com/javafx"
+          xmlns:fx="http://javafx.com/fxml"
+          fx:id="_Root"
+          styleClass="taskPanelOuter">
+    <columnConstraints>
+        <ColumnConstraints hgrow="ALWAYS"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints vgrow="NEVER"/>
+    </rowConstraints>
+    <GridPane GridPane.columnIndex="0" GridPane.rowIndex="0"
+              styleClass="taskPanelInner">
+        <columnConstraints>
+            <ColumnConstraints hgrow="NEVER"/>
+            <ColumnConstraints hgrow="NEVER" prefWidth="10"/>
+            <ColumnConstraints hgrow="ALWAYS"/>
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints vgrow="NEVER"/>
+            <RowConstraints vgrow="NEVER"/>
+        </rowConstraints>
+        <GridPane fx:id="_StateButton" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.rowSpan="2"
+                  alignment="CENTER" prefWidth="42" prefHeight="42"
+                  styleClass="rightPanelIconButton"
+                  onMouseClicked="#_StateButton_Clicked"
+                  onMouseEntered="#_StateButton_Entered"
+                  onMouseExited="#_StateButton_Exited">
+            <ImageView/>
+        </GridPane>
+        <GridPane GridPane.columnIndex="2" GridPane.rowIndex="0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="ALWAYS"/>
+                <ColumnConstraints hgrow="NEVER" prefWidth="5"/>
+                <ColumnConstraints hgrow="NEVER"/>
+                <ColumnConstraints hgrow="NEVER"/>
+                <ColumnConstraints hgrow="NEVER"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints vgrow="NEVER"/>
+            </rowConstraints>
+            <Text fx:id="_Title" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="taskPanelTitle"/>
+            <GridPane fx:id="_DelayedIcon" GridPane.columnIndex="2" GridPane.rowIndex="0"
+                      alignment="CENTER" prefWidth="42" prefHeight="42">
+                <ImageView>
+                    <image>
+                        <Image url="@../Images/delayed_32.png"/>
+                    </image>
+                </ImageView>
+            </GridPane>
+            <GridPane fx:id="_ImportantIcon" GridPane.columnIndex="3" GridPane.rowIndex="0"
+                      alignment="CENTER" prefWidth="42" prefHeight="42">
+                <ImageView>
+                    <image>
+                        <Image url="@../Images/important_32_enabled.png"/>
+                    </image>
+                </ImageView>
+            </GridPane>
+            <GridPane fx:id="_DeleteButton" GridPane.columnIndex="4" GridPane.rowIndex="0"
+                      alignment="CENTER" prefWidth="42" prefHeight="42"
+                      styleClass="rightPanelIconButton"
+                      onMouseClicked="#_DeleteButton_Clicked">
+                <ImageView>
+                    <image>
+                        <Image url="@../Images/delete_32.png"/>
+                    </image>
+                </ImageView>
+            </GridPane>
+        </GridPane>
+        <GridPane GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <columnConstraints>
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="25"/>
+                <ColumnConstraints hgrow="NEVER" prefWidth="10"/>
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="25"/>
+                <ColumnConstraints hgrow="NEVER" prefWidth="10"/>
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="25"/>
+                <ColumnConstraints hgrow="NEVER" prefWidth="10"/>
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="25"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints vgrow="NEVER"/>
+                <RowConstraints vgrow="NEVER"/>
+            </rowConstraints>
+            <Text GridPane.columnIndex="0" GridPane.rowIndex="0" text="Data rozpoczęcia" styleClass="taskPanelDateLabel"/>
+            <Text fx:id="_StartDateLabel" GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="taskPanelDateValue"/>
+            <Text GridPane.columnIndex="2" GridPane.rowIndex="0" text="Data zakończenia" styleClass="taskPanelDateLabel"/>
+            <Text fx:id="_EndDateLabel" GridPane.columnIndex="2" GridPane.rowIndex="1" styleClass="taskPanelDateValue"/>
+            <Text GridPane.columnIndex="4" GridPane.rowIndex="0" text="Planowana data rozpoczęcia" styleClass="taskPanelDateLabel"/>
+            <Text fx:id="_PlannedStartDateLabel" GridPane.columnIndex="4" GridPane.rowIndex="1" styleClass="taskPanelDateValue"/>
+            <Text GridPane.columnIndex="6" GridPane.rowIndex="0" text="Planowana data zakończenia" styleClass="taskPanelDateLabel"/>
+            <Text fx:id="_PlannedEndDateLabel" GridPane.columnIndex="6" GridPane.rowIndex="1" styleClass="taskPanelDateValue"/>
+        </GridPane>
+    </GridPane>
+</GridPane>
